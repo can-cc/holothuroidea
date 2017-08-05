@@ -24,17 +24,11 @@
 
 (defn build-tree-path [path]
   (let [source-path (.join npath path "source")]
-    (-> (util/read-dir source-path)
-
-        (first)
-        (print)
-        ;; (print)
-        ;; (mapv #(print %))
-        ;; (filter #(util/dir? (.join npath source-path (str %))))
-        
-        
-        
-        ;; (p/then (partial mapv println))
+    (->>
+     (util/read-dir source-path)
+     (filter #(util/dir? (.join npath source-path %)))
+     
+     
         ))
   )
 

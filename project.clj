@@ -8,7 +8,8 @@
                  [fipp "0.6.8"]]
   :jvm-opts ^:replace ["-Xmx1g"]
   :plugins [[lein-npm "0.6.2"]]
-  :npm {:dependencies [[source-map-support "0.4.0"]]}
+  :npm {:dependencies [[source-map-support "0.4.0"]
+                       [markdown "0.5.0"]]}
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :target-path "target")
