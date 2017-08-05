@@ -4,9 +4,12 @@
             [cljs.core.async]
             [promesa.core :as p]
             [promesa.async-cljs :refer-macros [async]]
+            [fipp.edn :refer (pprint) :rename {pprint fipp}]
             ))
 
 (def fs (node/require "fs"))
+(def npath (node/require "path"))
+
 
 ;; EXP map 里面不能 println
 (defn build-tree [rest]
@@ -20,8 +23,18 @@
       (p/then println)))
 
 (defn build-tree-path [path]
-  (-> (util/read-dir path)
-      (p/then (partial filter util/dir? (partial str path)))
-      (p/then (partial mapv println))
-      )
+  (let [source-path (.join npath path "source")]
+    (-> (util/read-dir source-path)
+
+        (first)
+        (print)
+        ;; (print)
+        ;; (mapv #(print %))
+        ;; (filter #(util/dir? (.join npath source-path (str %))))
+        
+        
+        
+        ;; (p/then (partial mapv println))
+        ))
   )
+

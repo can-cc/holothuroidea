@@ -8,7 +8,9 @@
      :output-to "out/holothuroidea.js"
      :output-dir "out"
      :target :nodejs
-     :verbose true})
+     :verbose true
+     :cache-analysis true
+     :pretty-print true})
   (println "... done. Elapsed" (/ (- (System/nanoTime) start) 1e9) "seconds"))
 
 

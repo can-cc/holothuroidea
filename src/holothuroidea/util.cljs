@@ -8,10 +8,8 @@
 (def fs (node/require "fs"))
 
 (defn read-dir [path]
-  (p/promise (fn [resolve reject]
-               (.readdir fs path (fn [err files]
-                                   (if err (reject (err))
-                                       (resolve (vec files))))))))
+  (js->clj (.readdirSync fs path)))
+
 (defn read-file [path]
   (p/promise (fn [resolve reject]
                (.readFile fs path (fn [err content]
@@ -24,4 +22,4 @@
 
 (defn dir? [path]
   (-> (.lstatSync fs path)
-      (.isDir)))
+      (.isDirectory)))
