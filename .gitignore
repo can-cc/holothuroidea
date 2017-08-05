@@ -11,3 +11,4 @@ pom.xml
 .repl*
 node_modules/
 .nrepl-port
+build/

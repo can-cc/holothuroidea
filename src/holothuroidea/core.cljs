@@ -17,7 +17,7 @@
 (defn -main [& args]
   (let [command (first args)]
     (cond
-      (= command "build") (build/build-tree (rest args))
+      (= command "build") (build/build-tree! (rest args))
       :else (show-help))
     ))
 

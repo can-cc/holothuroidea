@@ -13,6 +13,15 @@
 (defn read-file [path]
   (.readFileSync fs path ))
 
+(defn mkdir! [path]
+  (.mkdirSync fs path))
+
+(defn write-file! [path data]
+  (.writeFileSync fs path data "utf-8"))
+
+(defn exist? [path]
+  (.existsSync fs path))
+
 (defn file? [path]
   (-> (.lstatSync fs path)
       (.isFile)))
