@@ -46,3 +46,5 @@
              :articles (parse-path-all-articles (.join npath source-path name))
              })))))
 
+(defn test []
+  "test")

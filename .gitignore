@@ -12,3 +12,5 @@ pom.xml
 node_modules/
 .nrepl-port
 build/
+/.lein-failures
+test-out

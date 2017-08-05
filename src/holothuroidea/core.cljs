@@ -1,12 +1,12 @@
 (ns holothuroidea.core
   (:require [holothuroidea.build :as build]
             [cljs.nodejs :as nodejs]
-            [clojure.string :as string]))
+            [clojure.string :as string])) 
 
 (nodejs/enable-util-print!)
 
 (defn show-banner []
-  (println "EXPERIENCE WALL"))
+  (println "HOLOTHUROIDEA"))
 
 (defn show-help []
   (println (string/join "\n"
