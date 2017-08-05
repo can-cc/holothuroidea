@@ -5,9 +5,7 @@
 
 (nodejs/enable-util-print!)
 
-(deftest test-test
-  (is (= "test2" (build/test))))
-
-;; (cljs.test/run-tests)
-
-
+(deftest parse-path
+  (is (=
+       '({:name "husky", :path "test/mock/source/husky", :articles ("<p>&ndash;title:Date &ndash;date:2016-03-22 16:21:14 &ndash;tag:<h1>&mdash;</h1> winder is coming</p>")})
+       (build/parse-path "test/mock"))))

@@ -45,6 +45,3 @@
              :path (.join npath source-path name)
              :articles (parse-path-all-articles (.join npath source-path name))
              })))))
-
-(defn test []
-  "test")
