@@ -5,30 +5,40 @@
             [promesa.core :as p]
             [promesa.async-cljs :refer-macros [async]]
             [fipp.edn :refer (pprint) :rename {pprint fipp}]
+            [markdown.core :refer [md->html]]
             ))
 
 (def fs (node/require "fs"))
 (def npath (node/require "path"))
 
 
+
 ;; EXP map 里面不能 println
 (defn build-tree [rest]
   (let [path (first rest)]
-    (build-tree-path path)
-    )
-  )
+    (build-tree-path path)))
 
-(defn list-files [path]
-  (-> (util/read-dir path)
-      (p/then println)))
+
+(defn parse-md-file [path]
+  (md->html (util/read-file path))) 
+
+(defn parse-path-all-articles [path]
+  (->> (util/read-dir path)
+       (map #(parse-md-file (.join npath path %)))))
 
 (defn build-tree-path [path]
   (let [source-path (.join npath path "source")]
     (->>
      (util/read-dir source-path)
      (filter #(util/dir? (.join npath source-path %)))
-     
-     
-        ))
+     (map (fn [name]
+            {:name name
+             :path (.join npath source-path name)
+             :articles (parse-path-all-articles (.join npath source-path name))
+             }
+            )
+          )
+     (println)
+     ))
   )
 

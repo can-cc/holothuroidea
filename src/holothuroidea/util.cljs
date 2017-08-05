@@ -11,10 +11,7 @@
   (js->clj (.readdirSync fs path)))
 
 (defn read-file [path]
-  (p/promise (fn [resolve reject]
-               (.readFile fs path (fn [err content]
-                                    (if err (reject (err))
-                                        (resolve content)))))))
+  (.readFileSync fs path ))
 
 (defn file? [path]
   (-> (.lstatSync fs path)

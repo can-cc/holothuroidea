@@ -6,5 +6,6 @@
    :output-dir "out"
    :target :nodejs
    :verbose true
-   :cache-analysis true
+   :foreign-libs [{:file "src"
+                   :module-type :es6}] ;; or :commonjs / :amd
    :pretty-print true})
