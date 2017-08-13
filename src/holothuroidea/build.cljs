@@ -15,6 +15,10 @@
   (util/write-file! (.join npath output (str (:name category-data) ".json"))
                     (.stringify js/JSON (clj->js {:articles category-data}))))
 
+(defn write-summary-data! [output summary-data]
+  (util/write-file! (.join npath output "_summary.json")
+                    (.stringify js/JSON (clj->js summary-data))))
+
 (defn check-output-and-mkdir! [output]
   (when (not (util/exist? output))
     (util/mkdir! output)))
@@ -38,10 +42,18 @@
              :articles (parse-path-all-articles (.join npath source-path name))
              })))))
 
+(defn summarify [parsed]
+  (map (fn [category]
+         {:name (:name category)
+          :count (count category)})
+       parsed))
+
 (defn build-tree! [rest]
   (let [input (first rest)
         output (second rest)
-        parsed (parse-path input)]
+        parsed (parse-path input)
+        summary (summarify parsed)]
     (check-output-and-mkdir! output)
-    (->> parsed
-         (mapv #(write-category-data! output %)))))
+    (mapv #(write-category-data! output %) parsed)
+    (write-summary-data! output summary)
+    ))
