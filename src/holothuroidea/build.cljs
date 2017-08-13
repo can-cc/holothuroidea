@@ -11,18 +11,17 @@
 (def fs (node/require "fs"))
 (def npath (node/require "path"))
 
-(defn write-category-data [output category-data]
+(defn write-category-data! [output category-data]
   (util/write-file! (.join npath output (str (:name category-data) ".json"))
-                    (:articles category-data)))
+                    (.stringify js/JSON (clj->js {:articles category-data}))))
 
 (defn check-output-and-mkdir! [output]
   (when (not (util/exist? output))
     (util/mkdir! output)))
 
 ;; EXP map 里面不能 println
-
 (defn parse-md-file [path]
-  (md->html (util/read-file path))) 
+  (md->html (util/read-file path)))
 
 (defn parse-path-all-articles [path]
   (->> (util/read-dir path)
@@ -45,4 +44,4 @@
         parsed (parse-path input)]
     (check-output-and-mkdir! output)
     (->> parsed
-         (mapv #(write-category-data output %)))))
+         (mapv #(write-category-data! output %)))))
