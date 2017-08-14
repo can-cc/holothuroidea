@@ -13,7 +13,7 @@
 
 (defn write-category-data! [output category-data]
   (util/write-file! (.join npath output (str (:name category-data) ".json"))
-                    (.stringify js/JSON (clj->js {:articles category-data}))))
+                    (.stringify js/JSON (clj->js category-data))))
 
 (defn write-summary-data! [output summary-data]
   (util/write-file! (.join npath output "_summary.json")
