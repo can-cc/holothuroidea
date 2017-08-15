@@ -5,8 +5,7 @@
             [promesa.core :as p]
             [promesa.async-cljs :refer-macros [async]]
             [fipp.edn :refer (pprint) :rename {pprint fipp}]
-            [markdown.core :refer [md->html]]
-            ))
+            [markdown.core :refer [md->html]]))
 
 (def fs (node/require "fs"))
 (def npath (node/require "path"))
@@ -51,8 +50,7 @@
      (map (fn [name]
             {:name name
              :path (.join npath source-path name)
-             :articles (parse-path-all-articles (.join npath source-path name))
-             })))))
+             :articles (parse-path-all-articles (.join npath source-path name))})))))
 
 (defn summarify [parsed]
   (map (fn [category]
@@ -67,5 +65,4 @@
         summary (summarify parsed)]
     (check-output-and-mkdir! output)
     (mapv #(write-category-data! output %) parsed)
-    (write-summary-data! output summary)
-    ))
+    (write-summary-data! output summary)))
