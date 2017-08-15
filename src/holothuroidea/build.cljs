@@ -23,9 +23,21 @@
   (when (not (util/exist? output))
     (util/mkdir! output)))
 
+(defn parse-meta [meta]
+  (let [lines (clojure.string/split-lines meta)]
+    (->> lines
+         (map #(clojure.string/split % #":" 2))
+         (map (fn [kv]
+                [(keyword (subs (first kv) "2")) (second kv)]))
+         (into (sorted-map)))))
+
 ;; EXP map 里面不能 println
 (defn parse-md-file [path]
-  (md->html (util/read-file path)))
+  (let [raw (util/read-file path)
+        meta-and-content (clojure.string/split raw "#---")
+        meta (first meta-and-content)
+        content (second meta-and-content)]
+    (into (sorted-map) [{:content (md->html content)} (parse-meta meta)])))
 
 (defn parse-path-all-articles [path]
   (->> (util/read-dir path)
