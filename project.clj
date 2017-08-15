@@ -13,7 +13,8 @@
   :plugins [[lein-npm "0.6.2"]
             [io.aviso/pretty "0.1.34"]]
   :npm {:dependencies [[source-map-support "0.4.0"]
-                       [colors "1.1.2"]]}
+                       [colors "1.1.2"]
+                       [ora "v1.3.0"]]}
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :target-path "target")

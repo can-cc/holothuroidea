@@ -9,6 +9,7 @@
 
 (def fs (node/require "fs"))
 (def npath (node/require "path"))
+(def ora (node/require "ora"))
 
 (defn write-category-data! [output category-data]
   (util/write-file! (.join npath output (str (:name category-data) ".json"))
@@ -59,10 +60,12 @@
        parsed))
 
 (defn build-tree! [rest]
-  (let [input (first rest)
+  (let [spinner (.start (ora "parseing...."))
+        input (first rest)
         output (second rest)
         parsed (parse-path input)
         summary (summarify parsed)]
     (check-output-and-mkdir! output)
     (mapv #(write-category-data! output %) parsed)
-    (write-summary-data! output summary)))
+    (write-summary-data! output summary)
+    (.succeed spinner "build succeed!")))
