@@ -1,6 +1,7 @@
 (ns holothuroidea.core
   (:require [holothuroidea.build :as build]
             [holothuroidea.config :as config]
+            [holothuroidea.new :as new]
             [cljs.nodejs :as nodejs]
             [clojure.string :as string]))
 
@@ -19,6 +20,7 @@
     (cond
       (= command "build") (build/build-tree! (rest args))
       (= command "config") (config/config (rest args))
+      (= command "new") (new/new-experience (rest args))
       :else (show-help))
     ))
 
