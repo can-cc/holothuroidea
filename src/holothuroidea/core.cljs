@@ -1,9 +1,9 @@
 (ns holothuroidea.core
-  (:require [holothuroidea.build :as build]
+  (:require [cljs.nodejs :as nodejs]
+            [clojure.string :as string]
+            [holothuroidea.build :as build]
             [holothuroidea.config :as config]
-            [holothuroidea.new :as new]
-            [cljs.nodejs :as nodejs]
-            [clojure.string :as string]))
+            [holothuroidea.create :as new]))
 
 (nodejs/enable-util-print!)
 
