@@ -1,9 +1,8 @@
-(ns holothuroidea.new
+(ns holothuroidea.create
   (:require [holothuroidea.util :as util]
             [cljs.nodejs :as node]
             [cljs.core.async]
             [clojure.string :as string]))
-
 
 (def colors (node/require "colors"))
 (def fs (node/require "fs"))
@@ -12,7 +11,5 @@
 (defn print-input-tip []
   (println (.bold/yellow colors "✖ Invaild input\nholothuroidea config <set/read> <key> [value]")))
 
-
-(def new-template [args]
-
-  ())
+(defn new-template [args]
+  (print-input-tip))
