@@ -15,3 +15,5 @@ build/
 /.lein-failures
 test-out
 .tern-port
+.cljs_node_repl/
+.cljs_rhino_repl/
