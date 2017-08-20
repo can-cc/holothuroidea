@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.1.0-SNAPSHOT"
+(defproject holothuroidea "0.1.2"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
@@ -13,11 +13,19 @@
                  [lein-doo "0.1.7"]]
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   :jvm-opts ^:replace ["-Xmx1g"]
-  :plugins [[lein-npm "0.6.2"]
+  :plugins [[lein-npm "0.7.0-rc1"]
             [io.aviso/pretty "0.1.34"]]
   :npm {:dependencies [[source-map-support "0.4.0"]
                        [colors "1.1.2"]
-                       [ora "v1.3.0"]]}
+                       [ora "v1.3.0"]]
+        :version "0.0.2"
+        :name "holothuroidea",
+        :main "out/holothuroidea"
+        :repository {:type "git"
+                     :url "git@github.com:fwchen/holothuroidea.git"}
+        :bin {:holothuroidea "holothuroidea"}
+        :private false
+        :license "MIT"}
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :target-path "target")
