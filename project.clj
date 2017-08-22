@@ -1,6 +1,7 @@
-(defproject holothuroidea "0.1.2"
+(defproject holothuroidea "0.1.3"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
+  :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.671"]
@@ -18,7 +19,7 @@
   :npm {:dependencies [[source-map-support "0.4.0"]
                        [colors "1.1.2"]
                        [ora "v1.3.0"]]
-        :version "0.0.2"
+        :description "holothuroidea"
         :name "holothuroidea",
         :main "out/holothuroidea"
         :repository {:type "git"
@@ -26,6 +27,7 @@
         :bin {:holothuroidea "holothuroidea"}
         :private false
         :license "MIT"}
+  :bin {:holothuroidea "holothuroidea"}
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :target-path "target")
