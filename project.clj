@@ -1,5 +1,4 @@
 (defproject holothuroidea "0.1.3"
-  :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
