@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.1.3"
+(defproject holothuroidea "0.1.7"
   :url "http://example.com/FIXME"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
@@ -13,7 +13,7 @@
                  [lein-doo "0.1.7"]]
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   :jvm-opts ^:replace ["-Xmx1g"]
-  :plugins [[lein-npm "0.7.0-rc1"]
+  :plugins [[lein-npm-fw "0.7.0-rc2"]
             [io.aviso/pretty "0.1.34"]]
   :npm {:dependencies [[source-map-support "0.4.0"]
                        [colors "1.1.2"]
