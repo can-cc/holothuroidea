@@ -6,11 +6,13 @@ var result = child_process.exec('node test-out/test');
 console.log('» » » Testing:'.bold.yellow);
 
 result.stdout.on('data', function(data) {
-  console.log(data.replace('@Success@', "✔ Succcess".bold.green));
-})
+  console.log(data.replace('@Success@', '✔ Succcess'.bold.green));
+});
 
 result.stderr.on('data', function(data) {
   console.log(data.bold.red);
-})
+});
 
-// console.log(result.toString());
+result.on('close', code => {
+  process.exit(code);
+});
