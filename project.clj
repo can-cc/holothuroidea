@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.1.7"
+(defproject holothuroidea "0.2.1"
   :url "http://example.com/FIXME"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
@@ -13,7 +13,7 @@
                  [lein-doo "0.1.7"]]
   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
   :jvm-opts ^:replace ["-Xmx1g"]
-  :plugins [[lein-npm-fw "0.7.0-rc2"]
+  :plugins [[lein-npm "0.7.0-rc1"]
             [io.aviso/pretty "0.1.34"]]
   :npm {:dependencies [[source-map-support "0.4.0"]
                        [colors "1.1.2"]
@@ -23,7 +23,7 @@
         :main "out/holothuroidea"
         :repository {:type "git"
                      :url "git@github.com:fwchen/holothuroidea.git"}
-        :bin {:holothuroidea "holothuroidea"}
+        :package {:bin {:holothuroidea "holothuroidea"}}
         :private false
         :license "MIT"}
   :bin {:holothuroidea "holothuroidea"}
