@@ -11,9 +11,6 @@
     (binding [*print-fn* *print-err-fn*]
       (println "Failure"))))
 
-;; (defmethod cljs.test/report [:cljs.test/default :pass] [m]
-;;   (println m))
-
 (defmethod cljs.test/report [:cljs.test/default :fail] [m]
   (binding [*print-fn* *print-err-fn*]
     (test/inc-report-counter! :fail)
@@ -32,14 +29,10 @@
     (when-let [message (:message m)] (println message))
     (test/print-comparison m)))
 
-
 (defmethod cljs.test/report [:cljs.test/:default :summary] [m]
   (println "\nRan" (:test m) "tests containing"
            (+ (:pass m) (:fail m) (:error m)) "assertions.")
   (println (:fail m) "failures," (:error m) "errors."))
-
-(deftest test-numbers
-  (is (= 1 1)))
 
 (cljs.test/run-tests)
 (cljs.test/run-tests 'test.build)
