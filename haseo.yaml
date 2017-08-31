@@ -1,4 +1,5 @@
 name: Holothuroidea
 commitrun: false
 flow:
+  - install: lein npm install
   - test: LEIN_ROOT=true ./scripts/test
