@@ -1,5 +1,4 @@
 name: Holothuroidea
-handstart: true
 commitrun: false
 flow:
   - test: ./scripts/test
