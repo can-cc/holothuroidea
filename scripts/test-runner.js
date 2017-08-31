@@ -10,7 +10,7 @@ result.stdout.on('data', function(data) {
 });
 
 result.stderr.on('data', function(data) {
-  console.log(data.bold.red);
+  console.error(data.bold.red);
 });
 
 result.on('close', code => {
