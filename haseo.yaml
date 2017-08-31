@@ -1,4 +1,4 @@
 name: Holothuroidea
 commitrun: false
 flow:
-  - test: ./scripts/test
+  - test: LEIN_ROOT ./scripts/test
