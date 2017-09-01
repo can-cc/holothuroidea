@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.2.1"
+(defproject holothuroidea "0.2.2"
   :url "http://example.com/FIXME"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
