@@ -34,7 +34,7 @@
 ;; EXP map 里面不能 println
 (defn parse-md-file [path]
   (let [raw (util/read-file path)
-        meta-and-content (clojure.string/split raw "#---")
+        meta-and-content (clojure.string/split raw "###")
         meta (first meta-and-content)
         content (second meta-and-content)]
     (into (sorted-map) [{:content (md->html content)} (parse-meta meta)])))
