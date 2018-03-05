@@ -1,7 +1,7 @@
 name: Holothuroidea
-commitrun: false
+watch: true
 flow:
-  - install: LEIN_ROOT=true lein npm install
+  - install: LEIN_ROOT=true lein npm ci install
   - test: LEIN_ROOT=true ./scripts/test
   - publish: LEIN_ROOT=true lein npm publish
   - local-install: yarn global add holothuroidea@latest
