@@ -9,13 +9,16 @@
   (let [filename (first rest)
         filepath (str filename ".md")
         title (or (second rest) filename)]
-    (->> (.openSync fs filepath, "w")
-         (.closeSync fs))
-    (.writeFileSync
-     fs
-     filepath
-     (string/join "\n"
-                  [(str "--title:" title)
-                   (str "--date:" (.toLocaleString (js/Date.) "zh"))
-                   "--tag:"
-                   "###"]))))
+    (if (.existsSync fs filepath)
+      (println (str filepath " already exist."))
+      (do
+       (->> (.openSync fs filepath, "w")
+            (.closeSync fs))
+       (.writeFileSync
+        fs
+        filepath
+        (string/join "\n"
+                     [(str "--title:" title)
+                      (str "--date:" (.toLocaleString (js/Date.) "zh"))
+                      "--tag:"
+                      "###"]))))))
