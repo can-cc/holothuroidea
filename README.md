@@ -1,6 +1,6 @@
 # holothuroidea
 
-FIXME: Write a one-line description of your library/project.
+experience logger cli
 
 ## Overview
 
@@ -49,6 +49,7 @@ Clean project specific out:
 Build a single release artifact with the following script and then open `index_release.html` in your browser.
 
     ./scripts/release
+    
 
 ## License
 
