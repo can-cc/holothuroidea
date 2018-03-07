@@ -3,6 +3,7 @@
             [clojure.string :as string]
             [holothuroidea.build :as build]
             [holothuroidea.config :as config]
+            [holothuroidea.add :as add]
             [holothuroidea.create :as new]))
 
 (nodejs/enable-util-print!)
@@ -11,9 +12,11 @@
   (println "HOLOTHUROIDEA"))
 
 (defn show-help []
-  (println (string/join "\n"
-                 ["Usage:"
-                  "seed [command]"])))
+  (println (string/join
+            "\n"
+            ["Usage:"
+             "holothuroidea [command]"
+             "holothuroidea add <filename> [title]"])))
 
 (defn -main [& args]
   (let [command (first args)]
@@ -21,6 +24,7 @@
       (= command "build") (build/build-tree! (rest args))
       (= command "config") (config/config (rest args))
       (= command "new") (new/new-experience (rest args))
+      (= command "add") (add/add-experience (rest args))
       :else (show-help))
     ))
 
