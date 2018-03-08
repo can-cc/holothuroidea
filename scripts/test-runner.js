@@ -14,5 +14,6 @@ result.stderr.on('data', function(data) {
 });
 
 result.on('close', code => {
+  console.log(code);
   process.exit(code);
 });
