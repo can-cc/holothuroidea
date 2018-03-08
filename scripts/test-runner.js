@@ -19,6 +19,5 @@ result.stderr.on('data', function(data) {
 
 result.on('close', code => {
   let exitCode = output.indexOf('<-=Failure-=>') === -1 ? 0 : 1;
-  console.log(exitCode);
   process.exit(exitCode);
 });
