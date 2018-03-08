@@ -1,8 +1,8 @@
 (defproject holothuroidea "0.2.2"
-  :url "http://example.com/FIXME"
+  :url "git@github.com:fwchen/holothuroidea.git"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
-                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.671"]
                  [cider/cider-nrepl "0.15.0"]
                  [org.clojure/core.async "0.3.426"]

@@ -9,7 +9,7 @@
   (if (cljs.test/successful? m)
     (println "@Success@")
     (binding [*print-fn* *print-err-fn*]
-      (println "Failure"))))
+      (println "<-=Failure-=>"))))
 
 (defmethod cljs.test/report [:cljs.test/default :fail] [m]
   (binding [*print-fn* *print-err-fn*]
