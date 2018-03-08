@@ -10,6 +10,8 @@
 (def fs (node/require "fs"))
 (def npath (node/require "path"))
 (def ora (node/require "ora"))
+(def moment (node/require "moment"))
+(def parseFormat (node/require "moment-parseformat"))
 
 (defn write-category-data! [output category-data]
   (util/write-file! (.join npath output (str (:name category-data) ".json"))
@@ -28,15 +30,20 @@
     (->> lines
          (map #(clojure.string/split % #":" 2))
          (map (fn [kv]
-                [(keyword (subs (first kv) "2")) (second kv)]))
+                (let [key (subs (first kv) "2")
+                      value (if (= key "date")
+                              (.valueOf (moment (second kv) (parseFormat (second kv))) "dddd")
+                              (second kv))]
+                  [(keyword key) value])
+                ))
          (into (sorted-map)))))
 
-;; EXP map 里面不能 println
 (defn parse-md-file [path]
   (let [raw (util/read-file path)
         meta-and-content (clojure.string/split raw "###")
         meta (first meta-and-content)
         content (second meta-and-content)]
+    (when (clojure.string/blank? content) (println "Warning: " path "not content"))
     (into (sorted-map) [{:content (md->html content)} (parse-meta meta)])))
 
 (defn parse-path-all-articles [path]
@@ -59,7 +66,7 @@
           :count (count category)})
        parsed))
 
-(defn build-tree! [rest]
+(defn build! [rest]
   (let [spinner (.start (ora "parseing...."))
         input (first rest)
         output (second rest)

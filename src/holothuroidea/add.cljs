@@ -4,6 +4,7 @@
             ))
 
 (def fs (node/require "fs"))
+(def moment (node/require "moment"))
 
 (defn add-experience [rest]
   (let [filename (first rest)
@@ -19,6 +20,6 @@
         filepath
         (string/join "\n"
                      [(str "--title:" title)
-                      (str "--date:" (.toLocaleString (js/Date.) "zh"))
+                      (str "--date:" (.format (moment)))
                       "--tag:"
                       "###"]))))))

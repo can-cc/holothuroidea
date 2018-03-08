@@ -17,7 +17,9 @@
             [io.aviso/pretty "0.1.34"]]
   :npm {:dependencies [[source-map-support "0.4.0"]
                        [colors "1.1.2"]
-                       [ora "v1.3.0"]]
+                       [ora "v1.3.0"]
+                       [moment-parseformat "2.2.1"]
+                       [moment "2.21.0"]]
         :description "holothuroidea"
         :name "holothuroidea",
         :main "out/holothuroidea"
@@ -26,7 +28,6 @@
         :package {:bin {:holothuroidea "holothuroidea"}}
         :private false
         :license "MIT"}
-  :bin {:holothuroidea "holothuroidea"}
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :target-path "target")

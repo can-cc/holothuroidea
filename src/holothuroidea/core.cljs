@@ -21,7 +21,7 @@
 (defn -main [& args]
   (let [command (first args)]
     (cond
-      (= command "build") (build/build-tree! (rest args))
+      (= command "build") (build/build! (rest args))
       (= command "config") (config/config (rest args))
       (= command "new") (new/new-experience (rest args))
       (= command "add") (add/add-experience (rest args))
