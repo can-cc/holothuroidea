@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.2.2"
+(defproject holothuroidea "0.2.3"
   :url "git@github.com:fwchen/holothuroidea.git"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
