@@ -22,4 +22,6 @@
                      [(str "--title:" title)
                       (str "--date:" (.format (moment)))
                       "--tag:"
-                      "###"]))))))
+                      "###"])
+        (println "create experience markdown file success")
+        )))))
