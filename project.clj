@@ -1,4 +1,4 @@
-(defproject holothuroidea "0.2.3"
+(defproject holothuroidea "0.2.4"
   :url "git@github.com:fwchen/holothuroidea.git"
   :description "holothuroidea"
   :dependencies [[com.cemerick/piggieback "0.2.1"]
@@ -25,7 +25,7 @@
         :main "out/holothuroidea"
         :repository {:type "git"
                      :url "git@github.com:fwchen/holothuroidea.git"}
-        :package {:bin {:holothuroidea "holothuroidea"}}
+        :package {:bin {:hidea "holothuroidea"}}
         :private false
         :license "MIT"}
   :source-paths ["src" "target/classes"]
